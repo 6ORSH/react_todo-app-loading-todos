@@ -22,18 +22,40 @@ export const Footer: React.FC<Props> = ({
       </span>
 
       <nav className="filter" data-cy="Filter">
-        {Object.values(TodosFilter).map(filter => (
-          <a
-            key={filter}
-            href={`#/${filter.toLowerCase()}`}
-            className={classNames('filter__link', {
-              selected: currentFilter === filter,
-            })}
-            onClick={() => handleFilterChange(filter)}
-          >
-            {filter}
-          </a>
-        ))}
+        {' '}
+        <a
+          href="#/"
+          className={classNames('filter__link', {
+            selected: currentFilter === TodosFilter.All,
+          })}
+          data-cy="FilterLinkAll"
+          onClick={() => handleFilterChange(TodosFilter.All)}
+        >
+          {' '}
+          All{' '}
+        </a>{' '}
+        <a
+          href="#/active"
+          className={classNames('filter__link', {
+            selected: currentFilter === TodosFilter.Active,
+          })}
+          data-cy="FilterLinkActive"
+          onClick={() => handleFilterChange(TodosFilter.Active)}
+        >
+          {' '}
+          Active{' '}
+        </a>{' '}
+        <a
+          href="#/completed"
+          className={classNames('filter__link', {
+            selected: currentFilter === TodosFilter.Completed,
+          })}
+          data-cy="FilterLinkCompleted"
+          onClick={() => handleFilterChange(TodosFilter.Completed)}
+        >
+          {' '}
+          Completed{' '}
+        </a>{' '}
       </nav>
 
       <button
