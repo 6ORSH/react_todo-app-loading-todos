@@ -15,18 +15,14 @@ export const TodoList: React.FC<Props> = ({ todos }) => (
           completed: todo.completed,
         })}
       >
-        <label
-          className="todo__status-label"
-          htmlFor={`todo-status-${todo.id}`}
-        >
+        <label className="todo__status-label">
+          {' '}
           <input
-            id={`todo-status-${todo.id}`}
             data-cy="TodoStatus"
             type="checkbox"
             className="todo__status"
             checked={todo.completed}
-            readOnly
-          />
+          />{' '}
         </label>
 
         <span data-cy="TodoTitle" className="todo__title">
